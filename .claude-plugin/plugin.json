@@ -1,0 +1,11 @@
+{
+  "name": "ue-engineering-paradigm",
+  "description": "An opinionated architecture skill for Unreal Engine: where each thing goes across C++, Blueprint and data, and why. GAS abilities as Blueprint chains of C++ nodes, the Blueprint node contract, data assets and validation, content velocity, composition over god classes, and the CDO/replication traps.",
+  "version": "0.1.0",
+  "author": {
+    "name": "Aaron Bostrom"
+  },
+  "repository": "https://github.com/ABostrom/ue-engineering-paradigm",
+  "license": "MIT",
+  "keywords": ["unreal", "unreal-engine", "ue5", "blueprint", "gameplay-ability-system", "gas", "architecture", "data-driven", "skills"]
+}

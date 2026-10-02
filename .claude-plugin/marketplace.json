@@ -1,0 +1,15 @@
+{
+  "name": "ue-engineering-paradigm",
+  "description": "Marketplace for the ue-engineering-paradigm Unreal Engine architecture skill.",
+  "owner": {
+    "name": "ABostrom"
+  },
+  "plugins": [
+    {
+      "name": "ue-engineering-paradigm",
+      "description": "Where each thing goes across C++, Blueprint and data in Unreal Engine, and why.",
+      "version": "0.1.0",
+      "source": "./"
+    }
+  ]
+}
