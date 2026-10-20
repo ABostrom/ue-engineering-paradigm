@@ -3,6 +3,17 @@
 All notable changes to this skill. Versions follow [semver](https://semver.org/): a change
 that alters what the skill tells an agent to do is at least a minor bump.
 
+## 0.2.0
+
+- `references/content-pipeline-and-taxonomy.md`: extend the engine's pipeline with one shared
+  vocabulary instead of building beside it. Assets describe themselves through DCC custom
+  properties, an Interchange pipeline checks them and copies them in, the asset registry
+  stores only what nothing else records, faceted gameplay-tag taxonomies (form/style/trait)
+  replace metadata in names, a Content Browser filter is built from the taxonomy, and content
+  is organised as library plugins with dependent plugins that append to them.
+- `SKILL.md`: two red flags (metadata in names or sidecar manifests; bespoke importers or
+  browsers) and the reference index row.
+
 ## 0.1.0
 
 First release.
