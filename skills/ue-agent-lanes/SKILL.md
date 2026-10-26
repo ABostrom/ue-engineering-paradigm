@@ -1,6 +1,6 @@
 ---
 name: ue-agent-lanes
-description: Use when running more than one AI agent on an Unreal project at once, or one agent unattended overnight - setting up a git worktree per lane, launching a headless editor or editor Python from the command line, building C++ from a second worktree, merging lane branches or generated levels, deciding what to gate before a merge or before main, or stopping a hung process. Also when a build fails on symbols the agent never touched, a test count moved with no test added or removed, an editor never exits after its log closes, the shared engine suddenly rebuilds from scratch, a saved level turns out to be the wrong map, or the owner's uncommitted work has gone missing.
+description: Use when running more than one AI agent on an Unreal project at once, or one agent unattended overnight - setting up a git worktree per lane, launching a headless editor or editor Python from the command line, building C++ from a second worktree, merging lane branches or generated levels, deciding what to gate before a merge or before main, or stopping a hung process. Also when a build fails on symbols the agent never touched, a test count moved with no test added or removed, an editor never exits after its log closes, the shared engine suddenly rebuilds from scratch, a saved level turns out to be the wrong map, or the developer's uncommitted work has gone missing.
 ---
 
 # Running agent lanes on an Unreal project
@@ -37,9 +37,9 @@ Two write passes are sequenced, or one gets its own worktree.
 | One writer per tree | A comment-only pass failed its build 99 times on another agent's half-finished refactor in files it never opened, and its test count was off by exactly the tests the other agent's uncommitted work deleted. Neither agent did anything wrong. |
 | Build a worktree only through the **main engine path**, with the worktree's `.uproject` | A lane ran `Build.bat` through its worktree's junction to the shared engine. UnrealBuildTool saw the engine at a second path, judged it out of date, and deleted and rebuilt thousands of shared engine outputs. Every lane's builds stopped until a relink with all editors closed. |
 | Editors launch with Live Coding off; builds use `-WaitMutex` | Live Coding's mutex is keyed on the shared editor executable, so one lane's editor blocks another's. A build waiting on the mutex is queued, not broken: never kill it. |
-| Stop only the PIDs you started | A mutex conflict was "cleared" by killing every process whose command line matched the build tool. One was the IDE installing its engine plugin, eight minutes in: a re-download, a full antivirus rescan and half an hour of the owner's time. |
+| Stop only the PIDs you started | A mutex conflict was "cleared" by killing every process whose command line matched the build tool. One was the IDE installing its engine plugin, eight minutes in: a re-download, a full antivirus rescan and half an hour of the developer's time. |
 | Cap concurrent editors (two headless is a good start) and run a watchdog | Off-screen editors sharing one GPU hung after `Log file closed`, stuck in driver teardown and immune to `Stop-Process`, while still holding module DLLs, so no lane could link. |
-| Protect the owner's uncommitted changes before an agent enters a tree | An agent's bake overwrote the owner's unsaved level edit, then "cleaned up" by restoring the file to HEAD. The only autosave was older than HEAD. |
+| Protect the developer's uncommitted changes before an agent enters a tree | An agent's bake overwrote the developer's unsaved level edit, then "cleaned up" by restoring the file to HEAD. The only autosave was older than HEAD. |
 | An agent never restores a file it did not change | Same incident. A dirty file the agent did not make is someone's work, or a fix (see `ue-engineering-paradigm` traps #9). |
 | Restore LFS assets with `git checkout`, never `git show rev:path >` | That writes the 130-byte pointer over the asset, and `git diff` then calls it identical (`ue-engineering-paradigm` traps #10). |
 | Merge lanes at commit boundaries; re-bake generated levels instead of hand-merging them | A baked level is an output. Both sides of a conflict are wrong for the merged inputs. |
@@ -53,7 +53,7 @@ overnight heartbeat).
 1. `git diff --name-only` (scoped to the project, not a full status on a huge repo). Anything
    listed that the agent was not sent to change is someone's work.
 2. Copy those files aside (or `git stash push -- <paths>`), and write in the brief: *"these
-   files are the owner's; do not touch, save over or restore them."*
+   files are the developer's; do not touch, save over or restore them."*
 3. Note the HEAD the agent starts from, so its report can be read against it.
 
 ## Gates
@@ -69,9 +69,9 @@ tree is quiet.
 ## The machine is someone's desk
 
 Headless work (builds, `-nullrhi` suites, commandlets, editor Python) is fine any time.
-Anything that opens a window, moves the OS cursor or captures the screen waits until the owner
+Anything that opens a window, moves the OS cursor or captures the screen waits until the developer
 says the machine is free. **Never capture the whole screen**: an agent that widened a capture
-to recover a stuck editor photographed the owner's video call. If a window handle cannot be
+to recover a stuck editor photographed the developer's video call. If a window handle cannot be
 resolved, stop.
 
 ## Red flags

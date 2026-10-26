@@ -1,10 +1,10 @@
 # Brief: <one-line outcome>
 
 <!-- Fill every section. Delete the comments. A section you cannot fill is a question for
-     the owner, not something to leave for the agent to guess. -->
+     the developer, not something to leave for the agent to guess. -->
 
 ## Goal
-<!-- The outcome someone can check: what the owner does in play, sees in a capture, or finds
+<!-- The outcome someone can check: what the developer does in play, sees in a capture, or finds
      in the tree. Not the work, the result. -->
 After this, in a two-player session, Heavy Strike staggers an enemy that is parrying, and the
 stagger reads clearly from the third-person camera.
@@ -23,7 +23,7 @@ stagger reads clearly from the third-person camera.
 ## Scope
 - Folder `<worktree>`, branch `<branch>`, editor port `<port>`.
 - Owns: `<paths>`. Does not touch: `<paths>`.
-- These files are the owner's uncommitted work: `<paths>`. Do not edit, save over or restore
+- These files are the developer's uncommitted work: `<paths>`. Do not edit, save over or restore
   them.
 - May: build / open the editor / run tests / commit. May not: push / merge / touch main.
 - Build with `<the main engine path's Build.bat> <Target> Win64 Development
@@ -43,6 +43,6 @@ stagger reads clearly from the third-person camera.
 - What was verified and how: the command, the result line. Tests written but not run: **UNRUN**.
 - Diagnoses refuted, and what you found instead.
 - Anything left out, and why.
-- What the owner should look at, specifically ("open the arena, stand by the north gate, Heavy
+- What the developer should look at, specifically ("open the arena, stand by the north gate, Heavy
   Strike the parrying guard").
 - Owed paperwork, each DONE or NOT DONE: <wiki pages, issue comments, tool notes>.

@@ -78,7 +78,7 @@ lane can link. Stuck in driver teardown, it may survive `Stop-Process -Force`.
   appears, give the process a short grace period; if the log ends in `Log file closed` and the
   process is still alive, report it as hung with its PID and the DLLs it holds. Do not wait on
   its exit code.
-- A hung editor that cannot be stopped is a report to the owner (it may need a reboot), not a
+- A hung editor that cannot be stopped is a report to the developer (it may need a reboot), not a
   reason to kill other processes.
 - An out-of-date graphics driver is a suspect; update it before tuning the cap.
 
@@ -89,11 +89,11 @@ and target that. The build tool, the editor, `dotnet` and MSBuild are shared wit
 with other lanes. A mutex conflict means something else is working: wait, or ask.
 
 Closing an editor this session launched, to build, is ordinary housekeeping. Closing one the
-owner is using is not; the owner says when the editor is theirs.
+developer is using is not; the developer says when the editor is theirs.
 
 ## A running editor goes stale
 
-Before chasing a visual bug the owner reports from an open editor, ask when that editor was
+Before chasing a visual bug the developer reports from an open editor, ask when that editor was
 launched relative to HEAD. An editor left open across a batch of commits shows old DLLs and old
 in-memory assets, and its symptoms look exactly like live bugs. A relaunch is cheaper than a
 diagnosis.

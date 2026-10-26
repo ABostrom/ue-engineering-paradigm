@@ -51,7 +51,7 @@ routine (re-checking accurate reports wastes the time the delegation saved).
 
 - A claim about what happens in play, made from reading code, is a guess. Label it as one in a
   single line, or leave it out. Do not schedule work from it.
-- When the owner reports a fault, their report is the finding. Add one log line that states
+- When the developer reports a fault, their report is the finding. Add one log line that states
   what the failing system did, build once, reproduce once, read it. Theories before that cost
   hours; the instrumented run usually answers it in one go.
 - When one symptom has had two causes, assume a third layer, not vindication.

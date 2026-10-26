@@ -30,5 +30,5 @@ a checklist item the reviewer answers per shot.
   over one scatter that ignores context. Each small tool knows its own rules.
 - When a fix needs a piece the kit lacks (a corner, an end cap, a bracket), make the piece in
   the DCC rather than faking it in the graph or dropping the fix.
-- Add the rules you find. Every note the owner makes by eye is a rule that was missing from this
+- Add the rules you find. Every note the developer makes by eye is a rule that was missing from this
   list.

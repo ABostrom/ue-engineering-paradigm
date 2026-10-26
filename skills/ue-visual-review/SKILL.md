@@ -1,12 +1,12 @@
 ---
 name: ue-visual-review
-description: Use when an Unreal project's look, level dressing, PCG output or player-facing feature needs reviewing by a person or an agent - setting up repeatable review shots or flythroughs, capturing before/after images and frame costs, publishing captures for the owner, running art-direction review rounds, turning review notes into issues and lane work, or deciding when to run the review harness. Also when a green test suite or bake check is being offered as proof that something looks right, captures differ run to run, review notes are piling up as hundreds of issues, or the owner keeps finding floating, clipping or nonsensical placement by eye.
+description: Use when an Unreal project's look, level dressing, PCG output or player-facing feature needs reviewing by a person or an agent - setting up repeatable review shots or flythroughs, capturing before/after images and frame costs, publishing captures for the developer, running art-direction review rounds, turning review notes into issues and lane work, or deciding when to run the review harness. Also when a green test suite or bake check is being offered as proof that something looks right, captures differ run to run, review notes are piling up as hundreds of issues, or the developer keeps finding floating, clipping or nonsensical placement by eye.
 ---
 
 # The visual review loop
 
 **A green suite proves the rules it has. It does not prove the place looks real or the move
-reads well.** The owner finds those by eye, and every one they find is a review the loop
+reads well.** The developer finds those by eye, and every one they find is a review the loop
 should have done first.
 
 The loop: **fixed shots → captures from a real build → a review against written rules →
@@ -38,9 +38,9 @@ on screen, or the fact was right and its presentation unreadable.
 "Does it look good?" gets a shrug. "Does every pipe end at a fitting?" gets a finding. Write the
 real-world rules down and review against them: **references/realism-rules.md**.
 
-- **Appraise your own output before the owner sees it.** A tool that "places pieces" and a
+- **Appraise your own output before the developer sees it.** A tool that "places pieces" and a
   green bake check proved nothing about floating props, clipping panels or cables running
-  nowhere; the owner found all three by eye.
+  nowhere; the developer found all three by eye.
 - **Measurable rules become bake-check rules** with counts. The rest are a checklist the
   reviewer reports against.
 - **When a tool cannot satisfy a rule, it drops the piece** rather than placing nonsense.
@@ -70,16 +70,16 @@ Be nit-picky here and spend freely: set dressing is low-risk and is what sells t
 - Route each issue to the lane that owns the fix (`ue-agent-lanes`). Reference the issue in the
   commits; close it with the SHAs when every item has landed. Triage after each merge.
 
-## Publish captures for the owner
+## Publish captures for the developer
 
-Before/after pairs, the same camera side by side, on one page the owner can read **on a
+Before/after pairs, the same camera side by side, on one page the developer can read **on a
 phone**: one column at narrow widths, images full width, the camera name and the note it
 answers under each pair, the frame-time change beside it. Commit the images (they are the
 progress record); scratch directories vanish.
 
 ## When to run the harness
 
-**Once, at the end of a push**: after the big merge, before the owner's review. Not after
+**Once, at the end of a push**: after the big merge, before the developer's review. Not after
 every change: each run needs a cook and stage, and per-change runs slowed round trips without
 finding more. Inside a push, a cheap editor viewport shot of the touched area is enough.
 

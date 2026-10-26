@@ -10,7 +10,7 @@ generalised failure that taught it.
 
 - `skills/ue-agent-lanes`: one writer per tree; a lane is a worktree, branch, editor port and
   owned paths; build worktrees only through the main engine path; stop only PIDs you started;
-  protect the owner's uncommitted changes; merge at commit boundaries and re-bake generated
+  protect the developer's uncommitted changes; merge at commit boundaries and re-bake generated
   levels; light gates for content, the full gate before main. References: headless editor
   work (`-ExecutePythonScript` quits the next tick unless kept alive, `-ExecCmds` never quits,
   every script quits itself, level-saving scripts assert the open level, the editor cap and
@@ -31,7 +31,7 @@ generalised failure that taught it.
   interface" (frame, declared length, tags, slots, sockets and connectors, volumes, collision;
   tight multi-box occupancy; how a hand-made piece supplies the contract), plus two red flags
   and the index row.
-- `evals/`: six tasks for the new skills (08-13), not yet run.
+- `evals/`: six tasks for the new skills (08-13). UNRUN: `RESULTS.md` says how to run them.
 
 ## 0.2.0
 

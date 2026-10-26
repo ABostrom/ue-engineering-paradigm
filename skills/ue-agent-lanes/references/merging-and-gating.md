@@ -7,7 +7,7 @@
   round.
 - A lane pushes after **each finished item, at a clean commit**. The integrator merges what has
   arrived; nobody waits on a lane mid-item.
-- The owner calls the cut for a playtest build. Lanes keep landing work until then; do not
+- The developer calls the cut for a playtest build. Lanes keep landing work until then; do not
   impose cut-off times on them, and keep the last green package as the fallback.
 
 ## Merging generated content
@@ -50,7 +50,7 @@ by item as DONE or NOT DONE.
 
 ## The overnight heartbeat
 
-When the owner is away and lanes should keep working, a scheduled check (an hourly loop or
+When the developer is away and lanes should keep working, a scheduled check (an hourly loop or
 cron in the orchestrating session) keeps them busy:
 
 1. For each lane: is its agent running, finished or stuck? Read its last report, not its
@@ -60,8 +60,8 @@ cron in the orchestrating session) keeps them busy:
    a tight brief**. Do not resume the finished agent.
 3. A stuck lane (no commit, no log progress for a long stretch): record what it was doing and
    stop it by its PID.
-4. Respect holds: never start work the owner said to wait for, even on an idle lane.
-5. Write one line per lane to one log the owner reads in the morning: what landed (SHA), what
+4. Respect holds: never start work the developer said to wait for, even on an idle lane.
+5. Write one line per lane to one log the developer reads in the morning: what landed (SHA), what
    is running, what is blocked and why.
 
 Check machine load before starting another lane: the editor cap applies overnight too.

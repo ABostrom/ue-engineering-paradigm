@@ -97,6 +97,35 @@ baseline and with-skill on fresh agents, score against the rubric, and add a dat
 
 ## 0.3.0: tasks 08-13 (UNRUN)
 
-Tasks 08-13 exercise the four agent-workflow skills added in 0.3.0. They were written from real
-failures, but no baseline or with-skill run has been recorded yet. Run them by the method in
-`README.md` and add the table here before treating these skills as measured.
+**Status: UNRUN.** Tasks 08-13 exercise the four agent-workflow skills added in 0.3.0. They were
+written from real failures, but no baseline or with-skill answer has been produced or scored.
+The method needs a fresh agent per run, and the session that wrote these skills could not start
+one, so nothing below is a measurement. Do not treat these skills as measured until this
+section has a table.
+
+**How to run them** (12 runs: 6 tasks, baseline and with-skill each):
+
+1. For each task, copy only its *Prompt* section. Never show the agent the rubric.
+2. **Baseline:** start a fresh agent (a new session, or a subagent with no skills installed, on
+   a cheaper model such as Sonnet). Instruction: *"Answer from your own knowledge. Do not load
+   skills or read any files. Keep the answer under 700 words."* Then the prompt.
+3. **With skill:** start another fresh agent on the same model. Instruction: *"Read
+   `skills/<skill>/SKILL.md` and whichever of its references and templates you find relevant,
+   then answer. Keep the answer under 700 words."* Then the prompt. The skill for each task:
+
+   | Task | Skill to read |
+   |---|---|
+   | 08-two-agents-one-tree | `ue-agent-lanes` |
+   | 09-headless-bake-script | `ue-agent-lanes` |
+   | 10-brief-from-morning-audit | `ue-agent-briefs` |
+   | 11-report-says-zero | `ue-agent-briefs` |
+   | 12-dressing-review-loop | `ue-visual-review` |
+   | 13-pcg-fix-loosened-rule | `ue-pcg-fixtures` (and `ue-engineering-paradigm` `references/content-pipeline-and-taxonomy.md`) |
+
+4. **Score** each answer against the task's rubric: one point per *must* (half for partial),
+   and count every *must not* violation.
+5. Record a summary table in the shape of the 0.1.0 table above (baseline must, baseline
+   violations, with-skill must, with-skill violations), a line per task on what the baseline
+   got wrong, and any change made to a skill because of it (GREEN), with a re-run.
+6. If a baseline already passes a task, it does not discriminate: keep it as a regression test
+   and say so here.

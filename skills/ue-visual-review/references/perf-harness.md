@@ -21,7 +21,7 @@ ships ushell, `.perf test camera` and `.perf test sequence` build the same Gaunt
 
 1. **Enable the plugin** for the game target, so the packaged Development build carries the
    camera class and the test controllers.
-2. **Settings in a plugin's own config**, not the project's main ini, if the project owner
+2. **Settings in a plugin's own config**, not the project's main ini, if the developer
    edits that file by hand. Editing them in Project Settings writes to the project's default
    ini; move them back.
 3. **A review game mode.** The plugin ships a bare game mode (`AAutomatedPerfTestGameModeBase`, `Engine/Plugins/Performance/AutomatedPerfTesting/Source/AutomatedPerfTesting/Public/AutomatedPerfTestGameModeBase.h`):
