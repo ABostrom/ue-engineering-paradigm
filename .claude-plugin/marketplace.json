@@ -7,8 +7,8 @@
   "plugins": [
     {
       "name": "ue-engineering-paradigm",
-      "description": "Where each thing goes across C++, Blueprint and data in Unreal Engine, and why.",
-      "version": "0.2.0",
+      "description": "Where each thing goes across C++, Blueprint and data in Unreal Engine, and why; and how to run AI agents on an Unreal project.",
+      "version": "0.3.0",
       "source": "./"
     }
   ]

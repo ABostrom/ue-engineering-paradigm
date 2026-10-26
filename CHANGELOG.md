@@ -3,6 +3,36 @@
 All notable changes to this skill. Versions follow [semver](https://semver.org/): a change
 that alters what the skill tells an agent to do is at least a minor bump.
 
+## 0.3.0
+
+Four skills for working with AI agents on an Unreal project. Each rule is paired with the
+generalised failure that taught it.
+
+- `skills/ue-agent-lanes`: one writer per tree; a lane is a worktree, branch, editor port and
+  owned paths; build worktrees only through the main engine path; stop only PIDs you started;
+  protect the owner's uncommitted changes; merge at commit boundaries and re-bake generated
+  levels; light gates for content, the full gate before main. References: headless editor
+  work (`-ExecutePythonScript` quits the next tick unless kept alive, `-ExecCmds` never quits,
+  every script quits itself, level-saving scripts assert the open level, the editor cap and
+  the hung-on-exit watchdog) and merging, gating, the overnight heartbeat and retiring agents.
+- `skills/ue-agent-briefs`: the five-part brief (goal, state and what is ruled out, what to
+  read, scope, report-back shape) with a template; model choice; lookups with a read-only
+  boundary; audits go stale; reading reports (UNRUN tests, the tree over the message, a count
+  falling to zero); agent lifetime; corrections become rules with a Why, in the place that
+  enforces them.
+- `skills/ue-visual-review`: fixed review shots with the engine's AutomatedPerfTesting static
+  camera and sequence tests in an always-loaded review sublevel; eyewitness passes; realism
+  rules; art-direction rounds by a fresh agent; notes folded into issues per kit or tool;
+  one harness run at the end of a push.
+- `skills/ue-pcg-fixtures`: a review note becomes a fixture canvas; one level per system; an
+  `AFunctionalTest` per canvas over the bake check; expected failures with an issue, never a
+  loosened rule.
+- `ue-engineering-paradigm` `references/content-pipeline-and-taxonomy.md`: "The contract is the
+  interface" (frame, declared length, tags, slots, sockets and connectors, volumes, collision;
+  tight multi-box occupancy; how a hand-made piece supplies the contract), plus two red flags
+  and the index row.
+- `evals/`: six tasks for the new skills (08-13), not yet run.
+
 ## 0.2.0
 
 - `references/content-pipeline-and-taxonomy.md`: extend the engine's pipeline with one shared

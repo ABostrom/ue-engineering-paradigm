@@ -13,13 +13,19 @@ must not do.
 | `05-struct-param-api` | The node contract, `ExpandEnumAsExecs`, naming as API |
 | `06-fallback-when-null-pr` | Validate at the edge, no fallbacks, no content paths |
 | `07-replicated-value-never-arrives` | The archetype replication baseline |
+| `08-two-agents-one-tree` | `ue-agent-lanes`: one writer per tree, uncommitted work, killing by name, gates |
+| `09-headless-bake-script` | `ue-agent-lanes`: `-ExecutePythonScript` vs `-ExecCmds`, scripts that quit, asserting the level, the watchdog |
+| `10-brief-from-morning-audit` | `ue-agent-briefs`: the brief, verify-first, scoped reading, report shape |
+| `11-report-says-zero` | `ue-agent-briefs`: counts that drop to zero, UNRUN tests, the tree over the message |
+| `12-dressing-review-loop` | `ue-visual-review`: the perf harness, realism rules, review rounds, issues |
+| `13-pcg-fix-loosened-rule` | `ue-pcg-fixtures` and the artist contract |
 
 ## Method
 
 1. **Baseline.** Give a fresh agent the task's *Prompt* section only, and tell it not to load
    skills or read files.
-2. **With skill.** Give a fresh agent the same prompt, and tell it to read
-   `skills/ue-engineering-paradigm/SKILL.md` and whichever references it finds relevant (or
+2. **With skill.** Give a fresh agent the same prompt, and tell it to read the `SKILL.md` of the
+   skill the task exercises and whichever references it finds relevant (or
    install the plugin and let it trigger).
 3. **Score** both against the rubric: one point per *must* (half for partial); count every
    *must not* violation.

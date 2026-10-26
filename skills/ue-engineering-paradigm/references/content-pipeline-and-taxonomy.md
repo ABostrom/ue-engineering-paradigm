@@ -85,6 +85,50 @@ file so a new tag needs no code.
 - Registered plugins are in the asset registry before they load, so a catalogue lists them
   without hard references.
 
+## The contract is the interface
+
+Generated greybox (a DCC script that builds a fortress kit's walls, towers and battlements)
+gets you a playable arena fast. Later a person replaces pieces with hand-made art. That swap
+works only if **everything the placing tools read comes from a contract the piece declares**,
+never from the generator: not its naming quirks, not offsets it happens to bake in, not a
+lookup keyed on how it built the mesh.
+
+The contract, per piece:
+
+| Part | What it says | Notes |
+|---|---|---|
+| **Frame and pivot** | Units, axes, and where the pivot sits for this form | Per form: a wall run centred on its length and standing on zero; a fitting on its joint centre; a prop at bottom-centre. Write the rule per form, not per piece |
+| **Declared length** | The module size the tools tile by | Checked against the mesh to a tolerance; a mismatch gaps or overlaps every run |
+| **Tags** | One form, one or more styles, its traits (the facets above) | An unknown tag stops the import |
+| **Material slots** | A fixed slot order by role (body, team paint, emissive, glass, accent) | A slot that owns no face may be dropped on import; overlays stand proud so no two slots are coplanar |
+| **Sockets** | Mounts (where another piece goes: a torch bracket, a banner pole) and connectors (where a run joins: a chain, a rope, a drainage pipe) | A connector carries its direction, size and what it carries as custom properties. A fitting has one on every mating face, pointing out along its arm |
+| **Volumes** | Occupancy (the solid), keep-clear (a door's swing, a portcullis track), walkable tops, keep-out classes, no-build, decal-paintable faces | Named boxes in the DCC, or authored in the engine's mesh editor |
+| **Collision** | For the player and physics only | Tools read occupancy volumes, never collision |
+
+**Occupancy is a few tight boxes, one per real part, never one bounding box.** A balcony is its
+slab and each railing run with the deck open; a stair is its flights in steps. The failure this
+rule comes from: a generator that fell back to a single bounding box whenever a piece had more
+parts than its cap. The router then treated whole balconies and stairways as solid, every gap a
+chain or pipe could run through was blocked, and it took a voxel audit to find out why routes
+detoured. The same audit found the router using a piece's coarse **collision** as a routing
+surface whenever its occupancy was sparse.
+
+**How a hand-made piece gets in:**
+
+- The artist authors the contract in the DCC (named empties for sockets and volumes, custom
+  properties for tags and connector data), and the import reads it exactly as it reads a
+  generated piece's.
+- Or the contract is added in the engine (a mesh-editor tool for volumes and sockets, stored so
+  it survives reimport).
+- Anything missing is **derived from the mesh with a safe default** (tight multi-box occupancy,
+  never the bounds) and **flagged by data validation**, so the gap is visible to the artist
+  rather than guessed by PCG.
+- Keep a short artist-facing page of what a piece must carry. The config files are the
+  authority; the page summarises them and says so.
+
+Fixture levels that test the placing tools against these declarations: the `ue-pcg-fixtures`
+skill.
+
 ## Red flags
 
 | You see | It means | Do instead |
@@ -96,6 +140,8 @@ file so a new tag needs no code.
 | Free-text tags typed per asset | A vocabulary with no dictionary | A gameplay-tag taxonomy file, checked at import |
 | A style or aesthetic stored only on the collection | Cross-collection searches are impossible | The facet on each asset |
 | Size or sockets copied into metadata | Duplicated engine data | Read the bounds and sockets |
+| A placing tool that reads a generator's names or offsets | Hand-made art cannot replace the greybox | Read only the declared contract |
+| One bounding box as a piece's occupancy, or collision used for routing | Every gap a run could use is blocked | Tight multi-box occupancy; tools read occupancy only |
 
 ## Verify per engine version
 

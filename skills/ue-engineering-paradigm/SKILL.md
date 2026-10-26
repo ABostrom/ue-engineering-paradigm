@@ -136,6 +136,7 @@ the edge, use `check`/`ensure`, not `if (!X) return;` sprinkled everywhere. Untr
 | A runtime value that equals the CDO and "doesn't replicate" | Archetype baseline | traps |
 | Asset names encoding kit/slot/variant/size, or a manifest that must match the meshes | A registry squeezed into a string; a second store | content-pipeline-and-taxonomy |
 | A bespoke importer or asset browser for one content family | A parallel pipeline beside Interchange and the Content Browser | content-pipeline-and-taxonomy |
+| A placing tool that reads a generator's names or offsets, or one bounding box as occupancy | Hand-made art cannot slot in; runs are blocked | content-pipeline-and-taxonomy |
 
 ## Traps that look like working code
 
@@ -153,7 +154,7 @@ fails `IsDataValid` is born in error. **references/traps.md**.
 | `references/abilities-as-graphs.md` | Building or converting a GAS ability; the smells and their conversions |
 | `references/data-assets-and-validation.md` | Data asset schemas, Asset Manager, validation, instanced structs, tag vs enum |
 | `references/content-velocity.md` | Auditing whether content can be added with no code |
-| `references/content-pipeline-and-taxonomy.md` | Importing, tagging and finding a growing content family: DCC properties → Interchange → asset registry → Content Browser filter |
+| `references/content-pipeline-and-taxonomy.md` | Importing, tagging and finding a growing content family: DCC properties → Interchange → asset registry → Content Browser filter; the per-piece contract that lets hand-made art replace generated greybox |
 | `references/composition-and-god-classes.md` | Thin GameMode/Controller, phases, one owner per fact |
 | `references/traps.md` | CDO/default traps, replication baselines, renames, asset restore traps |
 | `references/reviewing.md` | Reviewing a C++/Blueprint change, and reviewing graphs |

@@ -94,3 +94,9 @@ distinguish **content on instances** (skip the CDO) from **content on the class 
 
 Use `evals/tasks/*.md`. Give the *Prompt* section only; keep the rubric from the agent. Run
 baseline and with-skill on fresh agents, score against the rubric, and add a dated section here.
+
+## 0.3.0: tasks 08-13 (UNRUN)
+
+Tasks 08-13 exercise the four agent-workflow skills added in 0.3.0. They were written from real
+failures, but no baseline or with-skill run has been recorded yet. Run them by the method in
+`README.md` and add the table here before treating these skills as measured.

@@ -1,7 +1,7 @@
 # Contributing to the skill
 
-House rules for changing `skills/ue-engineering-paradigm`. They exist so the skill stays short,
-true and testable.
+House rules for changing any skill under `skills/`. They exist so each skill stays short, true
+and testable.
 
 ## 1. Shape
 
@@ -20,8 +20,10 @@ reading the body. Max 1024 characters.
 
 ## 3. One running example
 
-Every example uses the same neutral game: a melee action game with **Parry**, **Dodge** and
-**Heavy Strike**, plus enemies, weapons and an arena mode where a second domain is needed. Do not
+Every example uses the same neutral game: a third-person melee action game with **Parry**,
+**Dodge** and **Heavy Strike**, plus enemies, weapons and an arena mode where a second domain is
+needed. The agent-workflow skills use the same game's production: fortress arenas dressed by
+PCG, a DCC kit pipeline, and lanes for gameplay, arena, look and art. Do not
 introduce a new genre for one example; consistency is what lets a reader skim.
 
 ## 4. Generalise the lesson, drop the story

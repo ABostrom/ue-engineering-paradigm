@@ -10,6 +10,16 @@ Gameplay Ability System) who want agents, and new teammates, to make the same st
 experienced lead would: designing a verb, a `BlueprintCallable` API, a data asset schema,
 decomposing a god-class GameMode, or reviewing a change at the C++/Blueprint boundary.
 
+It also carries four skills for **working with AI agents on an Unreal project**, learned the
+same way (each rule is paired with the failure that taught it):
+
+| Skill | Use when |
+|---|---|
+| `ue-agent-lanes` | Running several agents at once, or one overnight: worktrees, headless editors, building from a worktree, merging lanes and generated levels, gates, stopping processes |
+| `ue-agent-briefs` | Writing a brief, choosing a model, reading a report with suspicion, turning a correction into a rule |
+| `ue-visual-review` | Repeatable review shots with the engine's AutomatedPerfTesting harness, art-direction rounds, realism rules, notes to issues to lanes |
+| `ue-pcg-fixtures` | Hand-placed fixture levels for a PCG system, functional tests over a bake check, expected failures, the artist contract |
+
 ## The paradigm in five lines
 
 1. **C++ is a machine with no opinions; the Blueprint child is the grammar; data assets are the adjectives.**
@@ -37,14 +47,14 @@ the full URL: `/plugin marketplace add https://github.com/ABostrom/ue-engineerin
 
 ### Manual install
 
-Copy the skill folder into your personal or project skills directory:
+Copy the skill folders into your personal or project skills directory:
 
 ```bash
 git clone https://github.com/ABostrom/ue-engineering-paradigm.git
 # personal (all projects)
-cp -r ue-engineering-paradigm/skills/ue-engineering-paradigm ~/.claude/skills/
+cp -r ue-engineering-paradigm/skills/* ~/.claude/skills/
 # or project-only
-cp -r ue-engineering-paradigm/skills/ue-engineering-paradigm <your-project>/.claude/skills/
+cp -r ue-engineering-paradigm/skills/* <your-project>/.claude/skills/
 ```
 
 The skill triggers on its own when a task matches its description; you can also ask for it by
@@ -75,13 +85,25 @@ skills/ue-engineering-paradigm/
     ValidatedDefinition.h/.cpp UPrimaryDataAsset with fragments and IsDataValid
     EditorValidator.h/.cpp     UEditorValidatorBase registration validator
     DefinitionDiscovery.cpp    Asset Manager discovery and async load
+skills/ue-agent-lanes/         one writer per tree; worktree lanes, gates, the overnight heartbeat
+  references/headless-editor.md     launching editor Python, quitting, saving the right level, the editor cap and watchdog
+  references/merging-and-gating.md  protecting work, merging generated levels, gates, retiring agents
+skills/ue-agent-briefs/        the five-part brief, model choice, reading reports, corrections as rules
+  templates/brief.md               a brief to fill in
+  references/reading-reports.md     UNRUN tests, counts that drop to zero, stale audits, logs
+  references/corrections-become-rules.md  where each lesson belongs: rules file, memory, skill, wiki, hook
+skills/ue-visual-review/       fixed shots, art-direction rounds, notes to issues, when to run the harness
+  references/perf-harness.md        AutomatedPerfTesting static cameras and flythroughs via Gauntlet
+  references/realism-rules.md       support, clearance, connection, orientation, access, context, edges, repetition, keep-out
+skills/ue-pcg-fixtures/        fixture canvases per system, tests over the bake check, expected failures
+  references/canvas-levels.md       building fixture levels, the test's sequence, traps
 evals/                         golden tasks, rubrics, baseline vs with-skill results
 scripts/check-citations.mjs    verifies every cited engine path exists
 docs/skill-authoring-guide.md  how to contribute
 ```
 
-All examples share one running example: a melee action game with **Parry**, **Dodge** and
-**Heavy Strike**.
+All examples share one running example: a third-person melee action game with **Parry**,
+**Dodge** and **Heavy Strike**, fortress arenas dressed by PCG, and a DCC kit pipeline.
 
 ## How it complements general Unreal skills
 
